@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Domain Layer", "1. Domain Layer", "{851B7033-251F-4966-BA81-F3942643515C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain Layer", "2. Domain Layer", "{851B7033-251F-4966-BA81-F3942643515C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.Domain", "src\InsuranceAdvisor.Domain\InsuranceAdvisor.Domain.csproj", "{699A69F2-33CA-4469-8416-DF5D127D7DD3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.Tests.Domain", "tst\InsuranceAdvisor.Tests.Domain\InsuranceAdvisor.Tests.Domain.csproj", "{6996F80D-CED4-4964-8D84-2706EA79B9D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.WebAPI", "src\InsuranceAdvisor.WebAPI\InsuranceAdvisor.WebAPI.csproj", "{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Host Layer", "1. Host Layer", "{D1DBF58E-0F43-4FB8-860D-1CFFF0DC94A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Test Layer", "3. Test Layer", "{3C1825E8-FC03-4C99-A7C4-32E9C5CF4F9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +29,18 @@ Global
 		{6996F80D-CED4-4964-8D84-2706EA79B9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6996F80D-CED4-4964-8D84-2706EA79B9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6996F80D-CED4-4964-8D84-2706EA79B9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{699A69F2-33CA-4469-8416-DF5D127D7DD3} = {851B7033-251F-4966-BA81-F3942643515C}
+		{6996F80D-CED4-4964-8D84-2706EA79B9D1} = {3C1825E8-FC03-4C99-A7C4-32E9C5CF4F9A}
+		{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1} = {D1DBF58E-0F43-4FB8-860D-1CFFF0DC94A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F5C13661-A8A4-412B-97F3-1EB0DBA4E5D1}

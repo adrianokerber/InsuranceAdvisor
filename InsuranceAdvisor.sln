@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Domain Layer", "1. Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.Domain", "src\InsuranceAdvisor.Domain\InsuranceAdvisor.Domain.csproj", "{699A69F2-33CA-4469-8416-DF5D127D7DD3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.Tests.Domain", "tst\InsuranceAdvisor.Tests.Domain\InsuranceAdvisor.Tests.Domain.csproj", "{6996F80D-CED4-4964-8D84-2706EA79B9D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{699A69F2-33CA-4469-8416-DF5D127D7DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{699A69F2-33CA-4469-8416-DF5D127D7DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{699A69F2-33CA-4469-8416-DF5D127D7DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6996F80D-CED4-4964-8D84-2706EA79B9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6996F80D-CED4-4964-8D84-2706EA79B9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6996F80D-CED4-4964-8D84-2706EA79B9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6996F80D-CED4-4964-8D84-2706EA79B9D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

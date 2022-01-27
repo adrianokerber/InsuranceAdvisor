@@ -1,4 +1,5 @@
 ﻿using InsuranceAdvisor.Domain.Models;
+using InsuranceAdvisor.Domain.Models.Bases;
 using InsuranceAdvisor.Domain.Services;
 
 namespace InsuranceAdvisor.Domain.Interfaces

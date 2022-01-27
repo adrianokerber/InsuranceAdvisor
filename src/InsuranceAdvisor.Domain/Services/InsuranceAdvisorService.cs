@@ -1,18 +1,24 @@
 ﻿using InsuranceAdvisor.Domain.Interfaces;
 using InsuranceAdvisor.Domain.Models;
-using InsuranceAdvisor.Domain.Services;
+using InsuranceAdvisor.Domain.Models.Bases;
 
-namespace InsuranceAdvisor.Infrastructure.Services
+namespace InsuranceAdvisor.Domain.Services
 {
     public class InsuranceAdvisorService : IInsuranceAdvisorService
     {
-        const string _equalOrGreaterThanConditionMessage = "must be equal or greater than zero";
+        private const string _equalOrGreaterThanConditionMessage = "must be equal or greater than zero";
+        private readonly IRiskScoreService _riskScoreService;
+
+        public InsuranceAdvisorService(IRiskScoreService riskScoreService)
+        {
+            _riskScoreService = riskScoreService;
+        }
 
         public BaseResult ValidateClientProfile(ClientProfile clientProfile)
         {
             if (clientProfile == null)
                 return new BaseResult("Please inform client profile");
-            
+
             var errorMessages = new List<string>();
             if (clientProfile.Age < 0)
                 errorMessages.Add($"Age {_equalOrGreaterThanConditionMessage}");
@@ -30,7 +36,14 @@ namespace InsuranceAdvisor.Infrastructure.Services
 
         public InsuranceAdvice GenerateInsuranceAdvice(ClientProfile clientProfile)
         {
-            // TODO: apply risk algorithm
+            var riskScoreResult = _riskScoreService.ComputateRiskScore(clientProfile);
+
+            return ComputateInsuranceAdvice(riskScoreResult);
+        }
+
+        private InsuranceAdvice ComputateInsuranceAdvice(InsuranceLinesScore insuranceLinesScore)
+        {
+            // TODO: computate insurance advice based on scores of each insurance line
             throw new NotImplementedException();
         }
     }

@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace InsuranceAdvisor.WebApi.Models
 {
     public class HouseProfileDto
     {
-        [JsonProperty("ownership_status")]
+        [JsonPropertyName("ownership_status")]
         public string OwnershipStatus { get; set; }
     }
 }

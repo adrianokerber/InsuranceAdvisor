@@ -1,11 +1,12 @@
 using InsuranceAdvisor.Domain.Interfaces;
-using InsuranceAdvisor.Infrastructure.Services;
+using InsuranceAdvisor.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services
-    .AddScoped<IInsuranceAdvisorService, InsuranceAdvisorService>();
+    .AddScoped<IInsuranceAdvisorService, InsuranceAdvisorService>()
+    .AddScoped<IRiskScoreService, RiskScoreService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

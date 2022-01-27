@@ -1,4 +1,4 @@
-﻿namespace InsuranceAdvisor.Domain.Services
+﻿namespace InsuranceAdvisor.Domain.Models.Bases
 {
     public class BaseResult
     {

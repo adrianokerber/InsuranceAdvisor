@@ -1,22 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace InsuranceAdvisor.WebApi.Models
 {
     public class ClientProfileDto
     {
-        [JsonProperty("age")]
+        [JsonPropertyName("age")]
         public int Age { get; set; }
-        [JsonProperty("dependents")]
+        [JsonPropertyName("dependents")]
         public int Dependents { get; set; }
-        [JsonProperty("house")]
+        [JsonPropertyName("house")]
         public HouseProfileDto? House { get; set; }
-        [JsonProperty("income")]
+        [JsonPropertyName("income")]
         public decimal Income { get; set; }
-        [JsonProperty("marital_status")]
+        [JsonPropertyName("marital_status")]
         public string MartialStatus { get; set; }
-        [JsonProperty("risk_questions")]
+        [JsonPropertyName("risk_questions")]
         public List<int> RiskQuestions { get; set; }
-        [JsonProperty("vehicle")]
+        [JsonPropertyName("vehicle")]
         public VehicleProfileDto? Vehicle { get; set; }
     }
 }

@@ -2,9 +2,11 @@
 {
     public class VehicleProfile
     {
-        public VehicleProfile()
+        public int Year { get; }
+
+        public VehicleProfile(int year)
         {
-            throw new NotImplementedException();
+            Year = year;
         }
     }
 }

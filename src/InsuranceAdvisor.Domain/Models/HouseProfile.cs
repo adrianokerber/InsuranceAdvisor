@@ -2,9 +2,11 @@
 {
     public class HouseProfile
     {
-        public HouseProfile()
+        public string OwnershipStatus { get; }
+
+        public HouseProfile(string ownershipStatus)
         {
-            throw new NotImplementedException();
+            OwnershipStatus = ownershipStatus;
         }
     }
 }

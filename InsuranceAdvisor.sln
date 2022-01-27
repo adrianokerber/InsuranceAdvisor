@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.Tests.Domain", "tst\InsuranceAdvisor.Tests.Domain\InsuranceAdvisor.Tests.Domain.csproj", "{6996F80D-CED4-4964-8D84-2706EA79B9D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.WebAPI", "src\InsuranceAdvisor.WebAPI\InsuranceAdvisor.WebAPI.csproj", "{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceAdvisor.WebApi", "src\InsuranceAdvisor.WebApi\InsuranceAdvisor.WebApi.csproj", "{EBD98C07-4BC0-4235-A5B0-0C13350CD3B1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Host Layer", "1. Host Layer", "{D1DBF58E-0F43-4FB8-860D-1CFFF0DC94A9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Application Layer", "1. Application Layer", "{D1DBF58E-0F43-4FB8-860D-1CFFF0DC94A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Test Layer", "3. Test Layer", "{3C1825E8-FC03-4C99-A7C4-32E9C5CF4F9A}"
 EndProject

@@ -45,20 +45,25 @@ namespace InsuranceAdvisor.Domain.Services
 
         private InsuranceAdvice ComputateInsuranceAdvice(InsuranceLinesScore insuranceLinesScore)
         {
-            var insuranceAdvice = new InsuranceAdvice(GetInsuranceScoreLabel(insuranceLinesScore.Auto),
-                                                      GetInsuranceScoreLabel(insuranceLinesScore.Disability),
-                                                      GetInsuranceScoreLabel(insuranceLinesScore.Home),
-                                                      GetInsuranceScoreLabel(insuranceLinesScore.Life));
+            var autoInsuranceAdvice = GetInsuranceAdviceStatusByScore(insuranceLinesScore.Auto);
+            var disabilityInsuranceAdvice = GetInsuranceAdviceStatusByScore(insuranceLinesScore.Disability);
+            var homeInsuranceAdvice = GetInsuranceAdviceStatusByScore(insuranceLinesScore.Home);
+            var lifeInsuranceAdvice = GetInsuranceAdviceStatusByScore(insuranceLinesScore.Life);
+
+            var insuranceAdvice = new InsuranceAdvice(autoInsuranceAdvice,
+                                                      disabilityInsuranceAdvice,
+                                                      homeInsuranceAdvice,
+                                                      lifeInsuranceAdvice);
 
             return insuranceAdvice;
         }
 
-        private string GetInsuranceScoreLabel(RiskScore riskScore) => riskScore switch
+        private static InsuranceAdviceStatus GetInsuranceAdviceStatusByScore(RiskScore riskScore) => riskScore switch
         {
-            { IsIneligible: true } => "ineligible",
-            { Score: <= 0 } => "economic",
-            { Score: 1 or 2 } => "regular",
-            { Score: >= 3 } => "responsible"
+            { IsIneligible: true } => InsuranceAdviceStatus.Ineligible,
+            { Score: <= 0 } => InsuranceAdviceStatus.Economic,
+            { Score: 1 or 2 } => InsuranceAdviceStatus.Regular,
+            { Score: >= 3 } => InsuranceAdviceStatus.Responsible
         };
 	}
 }

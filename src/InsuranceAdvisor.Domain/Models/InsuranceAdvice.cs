@@ -7,7 +7,10 @@
         public string Home { get; }
         public string Life { get; }
 
-        public InsuranceAdvice(string auto, string disability, string home, string life)
+        public InsuranceAdvice(string auto,
+                               string disability,
+                               string home,
+                               string life)
         {
             Auto = auto;
             Disability = disability;

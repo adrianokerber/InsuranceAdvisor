@@ -1,4 +1,6 @@
-﻿namespace InsuranceAdvisor.Domain.Models.Bases.Rules
+﻿using InsuranceAdvisor.Domain.Models;
+
+namespace InsuranceAdvisor.Domain.Interfaces.Rules
 {
     public interface IRiskRule
     {

@@ -45,8 +45,20 @@ namespace InsuranceAdvisor.Domain.Services
 
         private InsuranceAdvice ComputateInsuranceAdvice(InsuranceLinesScore insuranceLinesScore)
         {
-            // TODO: computate insurance advice based on scores of each insurance line
-            throw new NotImplementedException();
+            var insuranceAdvice = new InsuranceAdvice(GetInsuranceScoreLabel(insuranceLinesScore.Auto),
+                                                      GetInsuranceScoreLabel(insuranceLinesScore.Disability),
+                                                      GetInsuranceScoreLabel(insuranceLinesScore.Home),
+                                                      GetInsuranceScoreLabel(insuranceLinesScore.Life));
+
+            return insuranceAdvice;
         }
-    }
+
+        private string GetInsuranceScoreLabel(RiskScore riskScore) => riskScore switch
+        {
+            { IsIneligible: true } => "ineligible",
+            { Score: <= 0 } => "economic",
+            { Score: 1 or 2 } => "regular",
+            { Score: >= 3 } => "responsible"
+        };
+	}
 }

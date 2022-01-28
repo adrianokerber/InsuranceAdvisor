@@ -19,7 +19,7 @@ namespace InsuranceAdvisor.WebAPI.Controllers
             _insuranceAdvisorService = insuranceAdvisorService;
         }
 
-        [HttpPost(Name = "advise")]
+        [HttpPost("advise")]
         public IActionResult RequestInsuranceAdvice([FromBody] ClientProfileDto clientProfileDto)
         {
             var clientProfile = clientProfileDto.ToDomain();

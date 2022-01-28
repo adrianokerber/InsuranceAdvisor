@@ -6,12 +6,17 @@ namespace InsuranceAdvisor.WebApi.Mappers
     public static class ClientProfileMapper
     {
         public static ClientProfile ToDomain(this ClientProfileDto dto)
-            => new ClientProfile(dto.Age,
-                                 dto.Dependents,
-                                 dto.House?.ToDomain(),
-                                 dto.Income,
-                                 dto.MartialStatus,
-                                 dto.RiskQuestions,
-                                 dto.Vehicle?.ToDomain());
+        {
+            if (!Enum.TryParse<MartialStatus>(dto.MartialStatus, true, out var martialStatus))
+                martialStatus = MartialStatus.None;
+
+            return new ClientProfile(dto.Age,
+                                     dto.Dependents,
+                                     dto.House?.ToDomain(),
+                                     dto.Income,
+                                     martialStatus,
+                                     dto.RiskQuestions,
+                                     dto.Vehicle?.ToDomain());
+        }
     }
 }

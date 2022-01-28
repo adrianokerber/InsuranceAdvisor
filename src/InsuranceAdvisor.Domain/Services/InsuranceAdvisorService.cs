@@ -26,10 +26,12 @@ namespace InsuranceAdvisor.Domain.Services
                 errorMessages.Add($"Dependents {_equalOrGreaterThanConditionMessage}");
             if (clientProfile.Income < 0)
                 errorMessages.Add($"Income {_equalOrGreaterThanConditionMessage}");
-            if (clientProfile.MartialStatus != "single" && clientProfile.MartialStatus != "married")
-                errorMessages.Add("Martial status unrecognized, use `single` or `married` as possible martial status");
-            if (clientProfile.RiskQuestions.Count != 3)
-                errorMessages.Add("Risk answers not informed properly, please inform three values as zero or one");
+            if (clientProfile.MartialStatus != MartialStatus.Single && clientProfile.MartialStatus != MartialStatus.Married)
+                errorMessages.Add("Martial status unrecognized, use 'single' or 'married' as possible martial status");
+            if (clientProfile.RiskQuestions.Count != 3 || clientProfile.RiskQuestions.Any(x => x < 0 || x > 1))
+                errorMessages.Add("Risk questions not informed properly, please inform three values as zeros and ones");
+            if (clientProfile.House != null && clientProfile.House.OwnershipStatus != OwnershipStatus.Owned && clientProfile.House.OwnershipStatus != OwnershipStatus.Mortgaged)
+                errorMessages.Add("House ownership status must be 'owned' or 'mortgaged'");
 
             return new BaseResult(errorMessages);
         }

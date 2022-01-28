@@ -12,7 +12,7 @@ namespace InsuranceAdvisor.WebApi.Models
         public HouseProfileDto? House { get; set; }
         [JsonPropertyName("income")]
         public decimal Income { get; set; }
-        [JsonPropertyName("marital_status")]
+        [JsonPropertyName("martial_status")]
         public string MartialStatus { get; set; }
         [JsonPropertyName("risk_questions")]
         public List<int> RiskQuestions { get; set; }

@@ -2,9 +2,9 @@
 {
     public class HouseProfile
     {
-        public string OwnershipStatus { get; }
+        public OwnershipStatus OwnershipStatus { get; }
 
-        public HouseProfile(string ownershipStatus)
+        public HouseProfile(OwnershipStatus ownershipStatus)
         {
             OwnershipStatus = ownershipStatus;
         }

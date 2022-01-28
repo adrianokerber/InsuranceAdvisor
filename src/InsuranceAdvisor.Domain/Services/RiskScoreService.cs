@@ -18,7 +18,16 @@ namespace InsuranceAdvisor.Domain.Services
         {
             return riskRuleChain
                 .AddRule(new ClientHasNoIncome())
-                .AddRule(new ClientHasNoVehicle());
+                .AddRule(new ClientHasNoVehicle())
+                .AddRule(new ClientHasNoHouse())
+                .AddRule(new ClientOver60YearsOld())
+                .AddRule(new ClientUnder30YearsOld())
+                .AddRule(new ClientBetween30and40YearsOld())
+                .AddRule(new ClientHasIncomeAbove200Thousand())
+                .AddRule(new ClientsHouseIsMortgaged())
+                .AddRule(new ClientHasDependents())
+                .AddRule(new ClientIsMarried())
+                .AddRule(new ClientsVehicleHasLessThan5Years());
         }
 
         public InsuranceLinesScore ComputateRiskScore(ClientProfile clientProfile)

@@ -2,7 +2,7 @@
 {
     public class RiskScore
     {
-        public ushort Score { get; set; } = 0;
+        public short Score { get; set; } = 0;
         public bool IsIneligible { get; set; } = false;
     }
 }

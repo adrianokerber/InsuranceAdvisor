@@ -4,9 +4,12 @@ namespace InsuranceAdvisor.Domain.Models.Rules
 {
     public class ClientsVehicleHasLessThan5Years : IRiskRule
     {
-        private int _fiveYearsAgo = DateTime.UtcNow.Year - 5;
+        public bool MatchCondition(ClientProfile clientProfile)
+        {
+            var fiveYearsAgo = DateTime.UtcNow.Year - 5;
 
-        public bool MatchCondition(ClientProfile clientProfile) => clientProfile.Vehicle?.Year > _fiveYearsAgo;
+            return clientProfile.Vehicle?.Year > fiveYearsAgo;
+        }
 
         public void ApplyScore(InsuranceLinesScore insuranceLinesScore)
         {

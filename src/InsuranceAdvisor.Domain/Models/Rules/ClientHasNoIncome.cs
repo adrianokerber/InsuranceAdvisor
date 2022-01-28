@@ -1,4 +1,4 @@
-﻿using InsuranceAdvisor.Domain.Models.Bases.Rules;
+﻿using InsuranceAdvisor.Domain.Interfaces.Rules;
 
 namespace InsuranceAdvisor.Domain.Models.Rules
 {

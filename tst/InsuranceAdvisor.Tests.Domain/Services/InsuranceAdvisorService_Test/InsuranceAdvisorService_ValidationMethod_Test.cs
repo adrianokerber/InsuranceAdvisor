@@ -279,7 +279,7 @@ namespace InsuranceAdvisor.Tests.Domain.Services.InsuranceAdvisorService_Test
         [Theory]
         [InlineData(OwnershipStatus.None)]
         [Trait("Error", "")]
-        public void When_ClientHaveHouseButWithoutProperOwnershipStatus_Expect_ErrorMessageAboutInvalidOwnershipStatus(OwnershipStatus givenOwnershipStatus)
+        public void When_ClientHasHouseButWithoutProperOwnershipStatus_Expect_ErrorMessageAboutInvalidOwnershipStatus(OwnershipStatus givenOwnershipStatus)
         {
             // Arrange
             var givenHouseProfile = new HouseProfile(givenOwnershipStatus);
@@ -293,6 +293,23 @@ namespace InsuranceAdvisor.Tests.Domain.Services.InsuranceAdvisorService_Test
                 .Should().BeFalse();
             validationResult.Messages
                 .Should().ContainSingle("House ownership status must be 'owned' or 'mortgaged'");
+        }
+
+        [Fact]
+        [Trait("Error", "")]
+        public void When_ClientProfileDoesNotExists_Expect_ErrorMessageAboutMissingClientProfile()
+        {
+            // Arrange
+            ClientProfile givenNullClientProfile = null;
+
+            // Act
+            var validationResult = _insuranceAdvisorService.ValidateClientProfile(givenNullClientProfile);
+
+            // Assert
+            validationResult.IsValid
+                .Should().BeFalse();
+            validationResult.Messages
+                .Should().ContainSingle("Please inform client profile");
         }
         #endregion
     }

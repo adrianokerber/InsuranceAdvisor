@@ -8,6 +8,7 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
 {
     public class ClientHasNoVehicle_Rule_Test
     {
+        #region Success cases
         [Fact]
         [Trait("Success", "")]
         public void When_ClientHasNoVehicle_Expect_AutoInsuranceLineToBeIneligible()
@@ -28,5 +29,27 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
                 .Should().BeTrue();
 
         }
+        #endregion
+
+        #region Error cases
+        [Fact]
+        [Trait("Error", "")]
+        public void When_ClientHasVehicle_Expect_SkipThisRule()
+        {
+            // Arrange
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithVehicle(new VehicleProfile(0));
+            var rule = new ClientHasNoVehicle();
+            var insuranceLinesScore = new InsuranceLinesScore();
+
+            // Act
+            var ruleMatches = rule.MatchCondition(clientProfile);
+            rule.ApplyScore(insuranceLinesScore);
+
+            // Assert
+            ruleMatches
+                .Should().BeFalse();
+
+        }
+        #endregion
     }
 }

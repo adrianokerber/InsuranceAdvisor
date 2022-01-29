@@ -8,6 +8,7 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
 {
     public class ClientIsUnder30YearsOld_Rule_Test
     {
+        #region Success cases
         [Fact]
         [Trait("Success", "")]
         public void When_ClientIsUnder30YearsOld_Expect_EachInsuranceLineToDeduct2ScorePoints()
@@ -33,5 +34,26 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
             insuranceLinesScore.Auto.Score
                 .Should().Be(-2);
         }
+        #endregion
+
+        #region Error cases
+        [Fact]
+        [Trait("Error", "")]
+        public void When_ClientIs30YearsOld_Expect_ToSkipThisFile()
+        {
+            // Arrange
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithAge(30);
+            var rule = new ClientUnder30YearsOld();
+            var insuranceLinesScore = new InsuranceLinesScore();
+
+            // Act
+            var ruleMatches = rule.MatchCondition(clientProfile);
+            rule.ApplyScore(insuranceLinesScore);
+
+            // Assert
+            ruleMatches
+                .Should().BeFalse();
+        }
+        #endregion
     }
 }

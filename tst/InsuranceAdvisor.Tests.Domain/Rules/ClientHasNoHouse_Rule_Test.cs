@@ -6,15 +6,15 @@ using Xunit;
 
 namespace InsuranceAdvisor.Tests.Domain.Rules
 {
-    public class ClientHasNoVehicle_Rule_Test
+    public class ClientHasNoHouse_Rule_Test
     {
         [Fact]
         [Trait("Success", "")]
-        public void When_ClientHasNoVehicle_Expect_AutoInsuranceLineToBeIneligible()
+        public void When_ClientHasNoHouse_Expect_HomeInsuranceLineToBeIneligible()
         {
             // Arrange
-            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithVehicle(null);
-            var rule = new ClientHasNoVehicle();
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithHouse(null);
+            var rule = new ClientHasNoHouse();
             var insuranceLinesScore = new InsuranceLinesScore();
 
             // Act
@@ -24,9 +24,8 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
             // Assert
             ruleMatches
                 .Should().BeTrue();
-            insuranceLinesScore.Auto.IsIneligible
+            insuranceLinesScore.Home.IsIneligible
                 .Should().BeTrue();
-
         }
     }
 }

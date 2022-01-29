@@ -2,19 +2,21 @@
 using InsuranceAdvisor.Domain.Models;
 using InsuranceAdvisor.Domain.Models.Rules;
 using InsuranceAdvisor.Tests.Domain.Models.Factories;
+using System;
 using Xunit;
 
 namespace InsuranceAdvisor.Tests.Domain.Rules
 {
-    public class ClientHasNoVehicle_Rule_Test
+    public class ClientsVehicleHas5YearsOrLess_Rule_Test
     {
         [Fact]
         [Trait("Success", "")]
-        public void When_ClientHasNoVehicle_Expect_AutoInsuranceLineToBeIneligible()
+        public void When_ClientsVehicleHas5YearsOrLess_Expect_Add1ToLifeAndDeduct1FromAuto()
         {
             // Arrange
-            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithVehicle(null);
-            var rule = new ClientHasNoVehicle();
+            var vehicleManufacture = DateTime.UtcNow.Year - 4;
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithVehicle(new VehicleProfile(vehicleManufacture));
+            var rule = new ClientsVehicleHasLessThan5Years();
             var insuranceLinesScore = new InsuranceLinesScore();
 
             // Act
@@ -24,9 +26,10 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
             // Assert
             ruleMatches
                 .Should().BeTrue();
-            insuranceLinesScore.Auto.IsIneligible
-                .Should().BeTrue();
-
+            insuranceLinesScore.Life.Score
+                .Should().Be(1);
+            insuranceLinesScore.Auto.Score
+                .Should().Be(-1);
         }
     }
 }

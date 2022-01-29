@@ -9,6 +9,7 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
     public class ClientHasNoIncome_Rule_Test
     {
         [Fact]
+        [Trait("Success", "")]
         public void When_ClientHasNoIncome_Expect_DisabilityInsuranceLineToBeIneligible()
         {
             // Arrange

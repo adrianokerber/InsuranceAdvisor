@@ -6,15 +6,15 @@ using Xunit;
 
 namespace InsuranceAdvisor.Tests.Domain.Rules
 {
-    public class ClientHasNoVehicle_Rule_Test
+    public class ClientIsOver60YearsOld_Rule_Test
     {
         [Fact]
         [Trait("Success", "")]
-        public void When_ClientHasNoVehicle_Expect_AutoInsuranceLineToBeIneligible()
+        public void When_ClientIsOver60YearsOld_Expect_LifeAndDisabilityInsuranceLinesToBeIneligible()
         {
             // Arrange
-            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithVehicle(null);
-            var rule = new ClientHasNoVehicle();
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithAge(61);
+            var rule = new ClientOver60YearsOld();
             var insuranceLinesScore = new InsuranceLinesScore();
 
             // Act
@@ -24,9 +24,10 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
             // Assert
             ruleMatches
                 .Should().BeTrue();
-            insuranceLinesScore.Auto.IsIneligible
+            insuranceLinesScore.Life.IsIneligible
                 .Should().BeTrue();
-
+            insuranceLinesScore.Disability.IsIneligible
+                .Should().BeTrue();
         }
     }
 }

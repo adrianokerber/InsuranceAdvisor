@@ -8,6 +8,7 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
 {
     public class ClientHasNoIncome_Rule_Test
     {
+        #region Success cases
         [Fact]
         [Trait("Success", "")]
         public void When_ClientHasNoIncome_Expect_DisabilityInsuranceLineToBeIneligible()
@@ -28,5 +29,27 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
                 .Should().BeTrue();
 
         }
+        #endregion
+
+        #region Error cases
+        [Fact]
+        [Trait("Error", "")]
+        public void When_ClientHasIncome_Expect_ToSkipThisRule()
+        {
+            // Arrange
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithIncome(1);
+            var rule = new ClientHasNoIncome();
+            var insuranceLinesScore = new InsuranceLinesScore();
+
+            // Act
+            var ruleMatches = rule.MatchCondition(clientProfile);
+            rule.ApplyScore(insuranceLinesScore);
+
+            // Assert
+            ruleMatches
+                .Should().BeFalse();
+
+        }
+        #endregion
     }
 }

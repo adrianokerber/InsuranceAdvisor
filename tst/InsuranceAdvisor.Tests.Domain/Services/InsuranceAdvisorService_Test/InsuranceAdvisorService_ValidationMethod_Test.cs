@@ -80,13 +80,13 @@ namespace InsuranceAdvisor.Tests.Domain.Services.InsuranceAdvisorService_Test
         }
 
         [Theory]
-        [InlineData(MartialStatus.Single)]
-        [InlineData(MartialStatus.Married)]
+        [InlineData(MaritalStatus.Single)]
+        [InlineData(MaritalStatus.Married)]
         [Trait("Success", "")]
-        public void When_ClientHasValidMartialStatus_Expect_ValidResult(MartialStatus givenMartialStatus)
+        public void When_ClientHasValidMaritalStatus_Expect_ValidResult(MaritalStatus givenMaritalStatus)
         {
             // Arrange
-            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMartialStatus(givenMartialStatus);
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMaritalStatus(givenMaritalStatus);
 
             // Act
             var validationResult = _insuranceAdvisorService.ValidateClientProfile(clientProfile);
@@ -193,11 +193,11 @@ namespace InsuranceAdvisor.Tests.Domain.Services.InsuranceAdvisorService_Test
 
         [Fact]
         [Trait("Error", "")]
-        public void When_ClientHasInvalidMartialStatus_Expect_ErrorMessageAboutInvalidMartialStatus()
+        public void When_ClientHasInvalidMaritalStatus_Expect_ErrorMessageAboutInvalidMaritalStatus()
         {
             // Arrange
-            var givenMartialStatus = MartialStatus.None;
-            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMartialStatus(givenMartialStatus);
+            var givenMaritalStatus = MaritalStatus.None;
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMaritalStatus(givenMaritalStatus);
 
             // Act
             var validationResult = _insuranceAdvisorService.ValidateClientProfile(clientProfile);
@@ -206,7 +206,7 @@ namespace InsuranceAdvisor.Tests.Domain.Services.InsuranceAdvisorService_Test
             validationResult.IsValid
                 .Should().BeFalse();
             validationResult.Messages
-                .Should().ContainSingle("Martial status unrecognized, use 'single' or 'married' as possible martial status");
+                .Should().ContainSingle("Marital status unrecognized, use 'single' or 'married' as possible marital status");
         }
 
         [Theory]

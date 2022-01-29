@@ -7,14 +7,14 @@ namespace InsuranceAdvisor.WebApi.Mappers
     {
         public static ClientProfile ToDomain(this ClientProfileDto dto)
         {
-            if (!Enum.TryParse<MartialStatus>(dto.MartialStatus, true, out var martialStatus))
-                martialStatus = MartialStatus.None;
+            if (!Enum.TryParse<MaritalStatus>(dto.MaritalStatus, true, out var maritalStatus))
+                maritalStatus = MaritalStatus.None;
 
             return new ClientProfile(dto.Age,
                                      dto.Dependents,
                                      dto.House?.ToDomain(),
                                      dto.Income,
-                                     martialStatus,
+                                     maritalStatus,
                                      dto.RiskQuestions,
                                      dto.Vehicle?.ToDomain());
         }

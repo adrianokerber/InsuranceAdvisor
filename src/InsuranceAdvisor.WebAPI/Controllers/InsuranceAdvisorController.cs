@@ -3,7 +3,7 @@ using InsuranceAdvisor.WebApi.Mappers;
 using InsuranceAdvisor.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace InsuranceAdvisor.WebAPI.Controllers
+namespace InsuranceAdvisor.WebApi.Controllers
 {
     [ApiController]
     [Produces("application/json")]

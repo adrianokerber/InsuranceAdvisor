@@ -6,7 +6,7 @@
         public int Dependents { get; }
         public HouseProfile? House { get; }
         public decimal Income { get; }
-        public MartialStatus MartialStatus { get; }
+        public MaritalStatus MaritalStatus { get; }
         public List<int> RiskQuestions { get; }
         public VehicleProfile? Vehicle { get; }
 
@@ -14,7 +14,7 @@
                              int dependents,
                              HouseProfile? house,
                              decimal income,
-                             MartialStatus martialStatus,
+                             MaritalStatus maritalStatus,
                              List<int> riskQuestions,
                              VehicleProfile? vehicle)
         {
@@ -22,7 +22,7 @@
             Dependents = dependents;
             House = house;
             Income = income;
-            MartialStatus = martialStatus;
+            MaritalStatus = maritalStatus;
             RiskQuestions = riskQuestions;
             Vehicle = vehicle;
         }

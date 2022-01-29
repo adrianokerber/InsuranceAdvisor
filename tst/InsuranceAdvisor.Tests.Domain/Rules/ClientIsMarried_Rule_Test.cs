@@ -14,7 +14,7 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
         public void When_ClientIsMarried_Expect_LifeInsuranceToAdd1AndDisabilityInsuranceToDeduct1FromScore()
         {
             // Arrange
-            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMartialStatus(MartialStatus.Married);
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMaritalStatus(MaritalStatus.Married);
             var rule = new ClientIsMarried();
             var insuranceLinesScore = new InsuranceLinesScore();
 
@@ -38,7 +38,7 @@ namespace InsuranceAdvisor.Tests.Domain.Rules
         public void When_ClientIsSingle_Expect_ToSkipThisRule()
         {
             // Arrange
-            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMartialStatus(MartialStatus.Single);
+            var clientProfile = ClientProfileTestFactory.CreateValidClientProfileWithMaritalStatus(MaritalStatus.Single);
             var rule = new ClientIsMarried();
             var insuranceLinesScore = new InsuranceLinesScore();
 

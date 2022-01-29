@@ -28,7 +28,7 @@ namespace InsuranceAdvisor.Tests.Domain.Services.InsuranceAdvisorService_Test
                                                   dependents: 0,
                                                   house: new HouseProfile(OwnershipStatus.Mortgaged),
                                                   income: 10_000,
-                                                  martialStatus: MartialStatus.Married,
+                                                  maritalStatus: MaritalStatus.Married,
                                                   riskQuestions: new List<int> { 0, 0, 0 },
                                                   vehicle: new VehicleProfile(2013));
             var expectedInsuranceAdvice = new InsuranceAdvice(auto: InsuranceAdviceStatus.Economic,
@@ -53,7 +53,7 @@ namespace InsuranceAdvisor.Tests.Domain.Services.InsuranceAdvisorService_Test
                                                   dependents: 0,
                                                   house: new HouseProfile(OwnershipStatus.Mortgaged),
                                                   income: 10_000,
-                                                  martialStatus: MartialStatus.Married,
+                                                  maritalStatus: MaritalStatus.Married,
                                                   riskQuestions: new List<int> { 0, 0, 0 },
                                                   vehicle: null);
             var expectedInsuranceAdvice = new InsuranceAdvice(auto: InsuranceAdviceStatus.Ineligible,

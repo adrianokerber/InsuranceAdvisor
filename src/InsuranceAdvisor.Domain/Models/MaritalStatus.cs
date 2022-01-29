@@ -1,6 +1,6 @@
 ﻿namespace InsuranceAdvisor.Domain.Models
 {
-    public enum MartialStatus
+    public enum MaritalStatus
     {
         None,
         Single,

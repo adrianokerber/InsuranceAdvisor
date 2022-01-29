@@ -9,14 +9,14 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                                         int dependents,
                                                         HouseProfile? house,
                                                         decimal income,
-                                                        MartialStatus martialStatus,
+                                                        MaritalStatus maritalStatus,
                                                         List<int> riskQuestions,
                                                         VehicleProfile? vehicle)
             => new ClientProfile(age,
                                  dependents,
                                  house,
                                  income,
-                                 martialStatus,
+                                 maritalStatus,
                                  riskQuestions,
                                  vehicle);
 
@@ -25,7 +25,7 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                    dependents: 0,
                                    house: null,
                                    income: 0,
-                                   martialStatus: MartialStatus.Single,
+                                   maritalStatus: MaritalStatus.Single,
                                    riskQuestions: new List<int> { 0, 0, 0 },
                                    vehicle: null);
 
@@ -34,7 +34,7 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                    dependents: 0,
                                    house: null,
                                    income: 0,
-                                   martialStatus: MartialStatus.Single,
+                                   maritalStatus: MaritalStatus.Single,
                                    riskQuestions: new List<int> { 0, 0, 0 },
                                    vehicle: null);
 
@@ -43,7 +43,7 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                    dependents: dependents,
                                    house: null,
                                    income: 0,
-                                   martialStatus: MartialStatus.Single,
+                                   maritalStatus: MaritalStatus.Single,
                                    riskQuestions: new List<int> { 0, 0, 0 },
                                    vehicle: null);
 
@@ -52,7 +52,7 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                    dependents: 0,
                                    house: house,
                                    income: 0,
-                                   martialStatus: MartialStatus.Single,
+                                   maritalStatus: MaritalStatus.Single,
                                    riskQuestions: new List<int> { 0, 0, 0 },
                                    vehicle: null);
 
@@ -61,16 +61,16 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                    dependents: 0,
                                    house: null,
                                    income: income,
-                                   martialStatus: MartialStatus.Single,
+                                   maritalStatus: MaritalStatus.Single,
                                    riskQuestions: new List<int> { 0, 0, 0 },
                                    vehicle: null);
 
-        public static ClientProfile CreateValidClientProfileWithMartialStatus(MartialStatus martialStatus)
+        public static ClientProfile CreateValidClientProfileWithMaritalStatus(MaritalStatus maritalStatus)
             => CreateClientProfile(age: 0,
                                    dependents: 0,
                                    house: null,
                                    income: 0,
-                                   martialStatus: martialStatus,
+                                   maritalStatus: maritalStatus,
                                    riskQuestions: new List<int> { 0, 0, 0 },
                                    vehicle: null);
 
@@ -79,7 +79,7 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                    dependents: 0,
                                    house: null,
                                    income: 0,
-                                   martialStatus: MartialStatus.Single,
+                                   maritalStatus: MaritalStatus.Single,
                                    riskQuestions: riskQuestions,
                                    vehicle: null);
 
@@ -88,7 +88,7 @@ namespace InsuranceAdvisor.Tests.Domain.Models.Factories
                                    dependents: 0,
                                    house: null,
                                    income: 0,
-                                   martialStatus: MartialStatus.Single,
+                                   maritalStatus: MaritalStatus.Single,
                                    riskQuestions: new List<int> { 0, 0, 0 },
                                    vehicle: vehicle);
     }

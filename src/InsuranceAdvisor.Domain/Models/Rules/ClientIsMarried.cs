@@ -4,7 +4,7 @@ namespace InsuranceAdvisor.Domain.Models.Rules
 {
     public class ClientIsMarried : IRiskRule
     {
-        public bool MatchCondition(ClientProfile clientProfile) => clientProfile.MartialStatus == MartialStatus.Married;
+        public bool MatchCondition(ClientProfile clientProfile) => clientProfile.MaritalStatus == MaritalStatus.Married;
 
         public void ApplyScore(InsuranceLinesScore insuranceLinesScore)
         {

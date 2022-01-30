@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      src/InsuranceAdvisor.WebApi/
+    container_name: advisor-api
+    networks:
+      - api-network
+    tty: true
+    ports:
+      - "8000:80"
+
+networks:
+  api-network:
+    driver: bridge

@@ -3,7 +3,8 @@ version: '3.9'
 services:
   api:
     build:
-      src/InsuranceAdvisor.WebApi/
+      context: .
+      dockerfile: src/InsuranceAdvisor.WebApi/Dockerfile
     container_name: advisor-api
     networks:
       - api-network

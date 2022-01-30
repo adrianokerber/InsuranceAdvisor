@@ -6,10 +6,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 WORKDIR /
 COPY . .
-RUN dotnet restore "InsuranceAdvisor.WebApi.csproj"
+RUN dotnet restore "src/InsuranceAdvisor.WebApi/InsuranceAdvisor.WebApi.csproj"
 
 FROM build AS publish
-RUN dotnet publish "InsuranceAdvisor.WebApi.csproj" -c Release -o /app/publish
+RUN dotnet publish "src/InsuranceAdvisor.WebApi/InsuranceAdvisor.WebApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

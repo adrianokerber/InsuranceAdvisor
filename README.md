@@ -28,7 +28,7 @@ Based on the [original document proposal](https://github.com/OriginFinancial/ori
 
 After that we created the application architecture and the generic rules system, also applying unit tests to ensure the quality of the system.
 
-🎉 We are proud of the achievements done through all the development process. 🎉
+    🎉 We are proud of the achievements done through all the development process. 🎉 - Adriano Kerber
 
 ## How to run
 Two methods for running this application will be presented below, choose the one that best fits your necessity.
@@ -48,6 +48,8 @@ Once you need to stop the application just run the line below to shutdown all co
 ```bash
 docker-compose down
 ```
+When the application is running you can access the endpoint using our Postman collection [here](https://www.postman.com/adrianokerber/workspace/insuranceadvisor/collection/6297841-d1f2a6a7-6669-43b2-9c3b-8087b9d1cf6d?ctx=documentation). Just remember to set Postman's environment to **Containerized (Docker)**.
+> On Postman set the environment to  **Containerized (Docker)**
 
 > Tip: Instead of Docker if you prefer you could use [Podman](https://podman.io/). Be advised that the docker-compose is still experimental on Podman and I particularly haven't tested this feature yet.
 
@@ -59,19 +61,18 @@ Once installed just run the following command to start the application
 ```bash
 dotnet run --project src/InsuranceAdvisor.WebApi/InsuranceAdvisor.WebApi.csproj
 ```
-
-### Congratulations you did it!
-Since by now you probably have completed one of the two setup methods above, then you should have the application running.
-
-In order to use the application you can access its Swagger page [https://localhost:7012/swagger/](https://localhost:7012/swagger/) or use our Postman collection [here](https://www.postman.com/adrianokerber/workspace/insuranceadvisor/collection/6297841-d1f2a6a7-6669-43b2-9c3b-8087b9d1cf6d?ctx=documentation).
-
-
-> Note: we use [gitmoji](https://gitmoji.dev/) pattern to improve commit readability.
+In order to access the application you can use its Swagger page [https://localhost:7012/swagger/](https://localhost:7012/swagger/) or use our Postman collection [here](https://www.postman.com/adrianokerber/workspace/insuranceadvisor/collection/6297841-d1f2a6a7-6669-43b2-9c3b-8087b9d1cf6d?ctx=documentation). Just remember to set Postman's environment to **Local (.NET SDK installed on machine)**
+> On Postman set the environment to  **Local (.NET SDK installed on machine)**
 
 To run the test cases just use
 ```bash
 dotnet test tst/InsuranceAdvisor.Tests.Domain/
 ```
+
+## 🎉 Congratulations you did it! 🎉
+If you followed one of the two setup methods above then you should have the application up and running properly.
+
+> Note: we use [gitmoji](https://gitmoji.dev/) pattern to improve commit readability on this repository
 
 ---
 
